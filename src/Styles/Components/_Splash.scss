@@ -1,0 +1,102 @@
+.splash {
+
+  &__title-block {
+    position: absolute;
+    z-index: 11;
+    top: 50%;
+    left: 9rem;
+    transform: translate(0%, -50%);
+
+    & h1 {
+      position: relative;
+      font-size: 5em;
+      line-height: 1.1;
+      font-weight: 100;
+      margin: .1em 0;
+
+      &.active {
+        font-variation-settings: "wght" 100;
+      }
+
+      & span {
+        font-size: 30px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__player {
+    pointer-events: none;
+    position: relative;
+    background-color: #111111;
+
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(17,17,17);
+      background: linear-gradient(0deg, rgba(17,17,17,1) 0%, rgba(17,17,17,0.8253676470588236) 40%, rgba(255,255,255,0) 100%);
+    }
+  }
+
+  &__slide {
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    //clip-path: inset(100% 0px 0px 0px);
+    opacity: 0;
+    transition: .6s ease;
+
+    &.slide-active {
+      //clip-path: inset(0px 0% 0px 0px);
+      opacity: 1;
+
+      //animation: slideInOut 2s ease;
+    }
+  }
+
+  &__timer {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 11;
+  }
+}
+
+.loader-bullet {
+  transform-origin: 50% 6px;
+
+  &.timing {
+    animation: timer;
+    animation-timing-function: ease;
+  }
+}
+
+
+@keyframes slideInOut {
+  50% {
+    clip-path: inset(0px 0% 0px 0px);
+  }
+  100% {
+    clip-path: inset(0px 100% 0px 0px);
+  }
+}
+
+@keyframes timer {
+  90% {
+    transform: translateY(46px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(46px) scale(0.1);
+    opacity: 0;
+  }
+}

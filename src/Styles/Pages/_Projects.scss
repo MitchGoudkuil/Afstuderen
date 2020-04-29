@@ -1,0 +1,65 @@
+.projects {
+  background-color: #111 ;
+
+  &__container {
+    display: flex;
+    height: 100vh;
+
+    &__toggle {
+      position: absolute;
+      z-index: 110;
+      right: -30px;
+      top: 50%;
+      background-color: #111;
+      padding: 25px;
+      border-radius: 100%;
+      opacity: 0;
+      transition: .6s ease;
+      transition-delay: .4s;
+
+
+      img {
+        width: 25px;
+      }
+    }
+
+    &--left {
+      position: relative;
+      background-color: #111;
+      color: #fff;
+      width: 30%;
+      height: 100vh;
+      transition: .4s;
+
+      &.hide {
+        transform: translateX(-95%);
+      }
+
+      & .base-center {
+        padding: 0 80px;
+        width: 100%;
+      }
+    }
+
+    &--right {
+      width: 70%;
+      height: auto;
+      background-color: #111;
+      transition: .6s ease ;
+      transition-delay: .7s;
+      color: #fff;
+      overflow: hidden;
+      overflow-y: scroll;
+      clip-path: inset(0% 0% 100% 0%);
+
+      &.expand {
+        width: 100%;
+      }
+    }
+  }
+
+  h2 {
+    margin-bottom: .5em;
+  }
+
+}

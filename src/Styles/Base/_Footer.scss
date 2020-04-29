@@ -1,0 +1,14 @@
+.footer {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  bottom: 1em;
+  padding: 0 6em;
+  opacity: 0;
+  transition: .6s ease-in-out;
+
+  & p {
+    font-size: 16px;
+  }
+}
