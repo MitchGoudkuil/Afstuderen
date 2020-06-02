@@ -9,12 +9,12 @@ import henneke from '../../Images/projects/henneke-1.jpg';
 import Loafies from '../../Images/projects/loav1-360x270.jpg';
 
 let studyArray = [
-    {id: 1, title:"Uitgekookt", link: "/item", image: Uitgekookt},
-    {id: 2, title:"Globaland", link: "/item", image: Project},
-    {id: 3, title:"Loavies", link: "/item", image: Loafies},
-    {id: 4, title:"Chateau Meiland", link: "/item", image: meiland},
-    {id: 5, title:"Ololai", link: "/item", image: Ololai},
-    {id: 6, title:"Henneke", link: "/item", image: henneke}
+    {id: 1, title:"Uitgekookt", link: "/project/globaland", image: Uitgekookt},
+    {id: 2, title:"Globaland", link: "/project/globaland", image: Project},
+    {id: 3, title:"Loavies", link: "/project/globaland", image: Loafies},
+    {id: 4, title:"Chateau Meiland", link: "/project/globaland", image: meiland},
+    {id: 5, title:"Ololai", link: "/project/globaland", image: Ololai},
+    {id: 6, title:"Henneke", link: "/project/globaland", image: henneke}
 ];
 
 class CaseStudy extends Component {
