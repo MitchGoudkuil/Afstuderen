@@ -1,11 +1,11 @@
 import React,{Component} from "react";
 import {NavLink} from "react-router-dom";
-import BackButton from "../Components/BackButton/BackButton";
 import VacancyItem from "../Components/VacancyItem/VacancyItem";
 import Footer from "../Components/Footer/Footer";
+import arrowDown from "../Images/icons/arrow-down-point.svg";
 
-
-let vacancyArray = [{id: 1, title: "Fulltime Art director / Creative", time: "", dateAdded: "22 dec 2019" },
+let vacancyArray = [
+    {id: 1, title: "Fulltime Art director / Creative", time: "", dateAdded: "22 dec 2019" },
     {id: 2, title: "Front-end developer", time: "32/40 Uur", dateAdded: "20 dec 2019"},
     {id: 3, title: "All-round developer", time: "32/40 Uur", dateAdded: "20 dec 2019"}];
 
@@ -18,6 +18,7 @@ class Contact extends Component {
     }
 
     componentDidMount() {
+        document.title = 'IQ-Media | Contact';
         if(!this.state.loaded ) {
             this.setState({loaded: true})
         }
@@ -26,13 +27,12 @@ class Contact extends Component {
     render() {
         return (
             <div className={"contact"}>
-                <BackButton link={"/projecten"}/>
                 <div className={'full-height contact'}>
                     <div className={'base-center'}>
-                        <h3 className={"anim-w--top"}>Waar kunnen wij jou mee helpen?</h3>
-                        <form action="">
+                        <h3 className={`anim-w ${this.state.loaded ? "appear-w" : "" }`}>Waar kunnen wij jou mee helpen?</h3>
+                        <form className={"form"} action="">
                             <div className={"flex contact__input"}>
-                                <label for="name">Ik ben</label>
+                                <label htmlFor="name">Ik ben</label>
                                 <input className={"form__field"} id={"name"} type="text"/>
                             </div>
                             <div className="flex contact__input ">
@@ -44,18 +44,33 @@ class Contact extends Component {
                                 <input className={"form__field"} id={"message"} type="text"/>
                             </div>
 
-                            <button type="submit" className={`button contact__button anim-w--top`}>Let's talk</button>
+                            <button type="submit" className={`button contact__button anim-w--top`}>Verzenden</button>
                         </form>
+
+                        <div className="contact-info__container">
+                            <div className={`content-block anim-w ${this.state.loaded ? "appear-w" : "" }`}>
+                                <h5>Contact</h5>
+                                <p>Tel: <a href={"tel:0384549555"}>+31(0)384549555</a></p>
+                                <p>info@iqmedia.nl</p>
+                            </div>
+                            <div className={`content-block anim-w ${this.state.loaded ? "appear-w" : "" }`}>
+                                <h5>Adres</h5>
+                                <p>Luttekestraat 68</p>
+                                <p>8011 LS Zwolle</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className={"vacancy__container black"}>
+
                     <div className="row">
+                        <h2 className={`vacancy__container-title anim-w ${this.state.loaded ? "appear-w" : "" }`}>Vacatures</h2>
                         {vacancyArray.map(item => {
-                            return <VacancyItem date={item.dateAdded} time={item.time} title={item.title} />
+                            return <VacancyItem key={item.id} loaded={this.state.loaded}  date={item.dateAdded} time={item.time} title={item.title} />
                         })}
                     </div>
                 </div>
-                <NavLink to={"/home"}>Terug naar home</NavLink>
+                <NavLink onClick={() => {window.scrollTo(0, 0)}} className={"home-button button"} to={"/home"}><img className={"icon icon__left"} src={arrowDown} alt=""/>Home</NavLink>
                 <Footer loaded={this.state.loaded}/>
             </div>
         )

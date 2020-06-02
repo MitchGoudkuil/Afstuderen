@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, Redirect } from 'react-router-dom';
 import Home from '../../Pages/Home';
 import About from '../../Pages/About';
 import Projecten from "../../Pages/Projecten";
@@ -9,10 +9,11 @@ import Contact from "../../Pages/Contact";
 const Router = () => {
   return (
     <>
-      <Route path="/home" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/projecten" component={Projecten} />
-        <Route path="/contact" component={Contact} />
+        <Redirect exact from="/" to="/home" />
+      <Route exact path="/home" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/projecten" component={Projecten} />
+      <Route exact path="/contact" component={Contact} />
     </>
   )
 }

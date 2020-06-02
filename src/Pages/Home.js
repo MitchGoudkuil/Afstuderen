@@ -7,14 +7,15 @@ class Home extends Component {
     constructor() {
         super();
         this.state = {
-            Loaded: false,
-            smallLoader: false,
+            loaded: false,
             nextPage: "about",
+            pagenl: "Over ons",
             timer: 0
         };
     }
 
     componentDidMount() {
+        document.title = 'IQ-Media | Home';
         window.addEventListener("scroll", this.handleScroll);
     }
 
@@ -25,7 +26,6 @@ class Home extends Component {
 
     timer = () => {
         this.setState({timer: this.state.timer + 1});
-        console.log(this.state.timer);
         if(this.state.timer >= 5) {
         }
     };
@@ -34,13 +34,10 @@ class Home extends Component {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = winScroll / height;
-        console.log(this.timer);
         if(scrolled === 1) {
-            this.setState({smallLoader: true});
-            console.log("Push ABOUT PAGE");
-            this.setState({Loaded: true});
+            this.setState({loaded: true});
         } else {
-            this.setState({Loaded: false, smallLoader: false, timer: 0});
+            this.setState({loaded: false, timer: 0});
         }
     };
 
@@ -49,28 +46,18 @@ class Home extends Component {
             <div className={"home bottom-fix"}>
                 <Splash />
                 <CaseStudy/>
-                <BottomLoader page={this.state.nextPage} bottom={this.state.Loaded}>
-                    {this.state.smallLoader ? (
-                        <div className="lds-ellipsis">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div> ) : null}
-                    <div className={'row about__introduction'}>
-                        <div className={"about__title"}>
-                            <p>Over ons</p>
-                            <h1>Maar wie zijn wij nou eigenlijk?</h1>
-                        </div>
-                        <div>
-                            <p>IQ-Media: een full-service marketing-, media- & reclamebureau vol energie. Gespecialiseerd in de strategische inzet en productie van hedendaagse marketing- en <a href="/"> communicatiemiddelen.</a> De ideale partner in productie van al uw media.<br /><br /> Dagelijks werken 40 vakspecialisten aan de realisatie van uiteenlopende producties. Alle technologie en creativiteit samen onder één dak.  </p>
-                        </div>
-                    </div>
+                <BottomLoader nl={this.state.pagenl} page={this.state.nextPage} bottom={this.state.loaded}>
                 </BottomLoader>
             </div>
         )
     }
 }
 
+// <div className="lds-ellipsis">
+//     <div></div>
+//     <div></div>
+//     <div></div>
+//     <div></div>
+// </div>
 
 export default Home

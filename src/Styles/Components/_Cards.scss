@@ -1,6 +1,12 @@
 .card {
 
+}
+
+.case-card {
+  position: relative;
+
   &__image {
+    position: relative;
     height: 300px;
     width: 100%;
     background-color: #efefef;
@@ -8,25 +14,34 @@
     -webkit-box-shadow: 0px 0px 24px 20px rgba(0,0,0,0.60);
     -moz-box-shadow:  0px 0px 24px 20px rgba(0,0,0,0.60);
     box-shadow:  0px 0px 24px 20px rgba(0,0,0,0.60);
+    z-index: 3;
 
-    &:hover {
-      & + .card__title {
-        opacity: 1;
-        transform: translateY(0%);
-      }
-    }
+    //&:hover {
+    //  & + .card__title {
+    //    opacity: 1;
+    //    transform: translateY(0%);
+    //  }
+    //}
+  }
+
+  &__number {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    //top: 0;
+    left: -15px;
+    transform: translateX(-100%);
+    color: rgba(255, 255, 255, 0.2);
+    z-index: 3;
   }
 
   &__title {
     color: #fff;
     margin-top: 1rem;
-    opacity: 0;
-    transform: translateY(100%);
+    opacity: 1;
+    //transform: translateY(100%);
     transition: .6s;
   }
-}
-
-.case-card {
 
   &:nth-of-type(even) {
     margin-top: 200px;

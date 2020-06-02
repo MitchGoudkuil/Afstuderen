@@ -1,30 +1,22 @@
 .project-container {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 1em 2em 1em 1em;
 
-  //&__background {
-  //  position: absolute;
-  //  top: 0;
-  //  left: 0;
-  //  z-index: 5;
-  //  width: 100%;
-  //  height: 100%;
-  //  background-color: rgba(0,0,0,0.8);
-  //  visibility: hidden;
-  //
-  //  &.show {
-  //    visibility: visible;
-  //  }
-  //}
+  grid-gap: 1em;
+
+  height: auto;
+  //transform: skew(-20deg);
 }
 
 .project-card {
-  width: 33.333%;
-  height: 33.333%;
+  width: 100%;
+  height: 25vh;
   flex: 0 0 auto;
-  background-color: #ffff99;
+  transition: .3s ease-in-out ;
+  cursor: pointer;
+  //border-radius: 20px;
 
   &.fourth {
     width: 25%;
@@ -32,5 +24,66 @@
 
   &.selected {
     z-index: 6;
+    transform: translateY(-20px) scale(1.03);
+    -webkit-box-shadow: 0px 0px 24px 20px rgba(0,0,0,0.40);
+    -moz-box-shadow:  0px 0px 24px 20px rgba(0,0,0,0.40);
+    box-shadow:  0px 0px 24px 20px rgba(0,0,0,0.40);
+  }
+}
+
+.project {
+  &__filter {
+    position: fixed;
+    width: 360px;
+    right: 2rem;
+    bottom: 2rem;
+    color: #fff;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__search {
+    background-color: #111111;
+    padding: 10px 10px 10px 20px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    & input {
+      background-color: rgba(0,0,0,0);
+      border: none;
+      color: #fff;
+      font-size: 1.250em;
+
+      &:focus {outline:0;}
+    }
+  }
+
+  &__square {
+    background-color: #111111;
+    padding: 10px;
+    border-radius: 25px;
+
+    & img {
+      width: 25px;
+    }
+  }
+
+  &__time {
+    background-color: #111111;
+    padding: 10px;
+    border-radius: 25px;
+
+    & img {
+      width: 25px;
+    }
   }
 }

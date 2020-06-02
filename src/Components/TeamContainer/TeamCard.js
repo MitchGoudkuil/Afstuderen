@@ -1,7 +1,8 @@
 import React from "react";
 
 let TeamCard = (props) => {
-    return (<div className={"person__card card"}>
+    return (
+        <div className={"person__card card"} onMouseOver={() => props.onMouseOver(props.backPic)}>
         <div className={"person__image person__image--inverted"}>
             <img src={props.image} alt=""/>
         </div>

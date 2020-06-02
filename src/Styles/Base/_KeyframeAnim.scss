@@ -32,3 +32,96 @@
     height: 0%;
   }
 }
+
+@keyframes loading-bar {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes number-rattle {
+   5% {
+     content: "0";
+   }
+   10% {
+     content: "10";
+   }
+   15% {
+     content: "23"
+   }
+   20% {
+     content: "39"
+   }
+   25% {
+     content: "46"
+   }
+  30% {
+    content: "60"
+  }
+  35% {
+    content: "73"
+  }
+  40% {
+    content: "85"
+  }
+  45% {
+    content: "98"
+  }
+  50% {
+    content: "107"
+  }
+  55% {
+    content: "117"
+  }
+  60% {
+    content: "125"
+  }
+  65% {
+    content: "130"
+  }
+  70% {
+    content: "134"
+  }
+  75% {
+    content: "137"
+  }
+  80% {
+    content: "139"
+  }
+  85% {
+    content: "141"
+  }
+  90% {
+    content: "142"
+  }
+  95% {
+    content: "143"
+  }
+  100% {
+    content: "144"
+  }
+ }
+
+@keyframes word-rattle {
+  12.5% {
+    content: "Koppen koffie?";
+  }
+  25% {
+    content: "Rollen wc-papier?";
+  }
+  37.5% {
+    content: "Excel sheets?"
+  }
+  50% {
+    content: "Awards?"
+  }
+  62.5% {
+    content: "Video's?"
+  }
+  75% {
+     content: "NEE!"
+   }
+  100% {
+    content: "Gewoon een hoop tevreden klanten! :)"
+  }
+}

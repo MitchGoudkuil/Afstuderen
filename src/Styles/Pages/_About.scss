@@ -10,18 +10,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 200px 0;
+  }
 
-    & div  {
-      transition: .8s ease;
-      transition-delay: .6s;
-      width: 50%;
-    }
+  &__wrap {
+    overflow: hidden;
   }
 
   &__title {
     position: relative;
     padding-right: 5em;
-
     text-align: center;
 
     & h1 {
@@ -31,39 +28,50 @@
     }
   }
 
+  &__info {
+    transition: .8s ease;
+    transition-delay: .6s;
+  }
+
+
+  &__follow {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    transition: .1s;
+
+    &.pop {
+      opacity: 1;
+
+      & img {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    & img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 500px;
+      transition: .4s ease;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: .2;
+    }
+  }
+
   &__specialty {
     background-color: #fff;
     color: #000;
-    padding: 160px 0 100px;
     transition-delay: .2s;
     transition: 1s ease-in-out;
     clip-path: inset(0% 0% 100% 0%);
+    display: flex;
+    justify-content: space-between;
 
-
-    & .row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-
-
-    div {
+    &--inner {
       position: relative;
-    }
-
-    &--left {
-      position: relative;
-      z-index: 10;
-      width: 60%;
-      color: #fff;
+      width: 100%;
       padding: 9em 0;
-      text-align: center;
-
-      & h2 {
-        margin: 0;
-      }
-
       &::after {
         content: '';
         z-index: -1;
@@ -77,9 +85,67 @@
       }
     }
 
+    &--left {
+      position: relative;
+      z-index: 10;
+      width: 60%;
+      color: #fff;
+      text-align: center;
+      height: 100%;
+
+      & h2 {
+        margin: 0;
+      }
+    }
+
     &--right {
       width: 40%;
-      padding-left: 3em;
+      padding: 160px 8em 100px 2em;
+    }
+  }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60%;
+}
+
+.nmber {
+  position: relative;
+  display: block;
+  height: 60px;
+  &::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+
+  }
+
+  &.animate {
+    &::after {
+      animation: number-rattle 3s ease-out forwards;
+    }
+  }
+}
+
+.word {
+  position: relative;
+  display: block;
+  height: 60px;
+  &::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+
+  }
+
+  &.animate {
+    &::after {
+      animation: word-rattle 7s ease-out forwards;
     }
   }
 }

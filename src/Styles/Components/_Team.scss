@@ -5,11 +5,12 @@
   overflow: hidden;
 
   &__heading {
+    z-index: 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 100px;
-    padding: 0 6em;
+    padding: 0 8em;
 
     & h2 {
       margin: 0;
@@ -21,10 +22,12 @@
   }
 
   &__inner {
+    position: relative;
     display: flex;
     overflow-x: scroll;
+    overflow-y: hidden;
     width: 100vw;
-    padding: 0 6em;
+    padding: 4em 8em;
     cursor: move;
     transition: .6s;
 
@@ -42,11 +45,12 @@
 .person {
 
   &__card {
-
+    position: relative;
     margin-right: 100px;
+    z-index: 2;
 
     &:nth-of-type(even){
-      margin-top: 100px;
+      margin-top: 50px;
     }
   }
 
@@ -65,10 +69,12 @@
     width: 200px;
     overflow: hidden;
     transition: transform .5s ease;
+    z-index: 1;
     margin-bottom: 1em;
     -webkit-box-shadow: 0px 0px 24px 20px rgba(0,0,0,0.60);
     -moz-box-shadow:  0px 0px 24px 20px rgba(0,0,0,0.60);
     box-shadow:  0px 0px 24px 20px rgba(0,0,0,0.60);
+    pointer-events: none;
 
 
     &:hover {
@@ -86,6 +92,28 @@
     &:hover img {
       transform: scale(1.15);
     }
+  }
+
+  &__back {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .1s ease;
+    -webkit-box-shadow: 0px 0px 24px 20px rgba(0,0,0,0.60);
+    -moz-box-shadow:  0px 0px 24px 20px rgba(0,0,0,0.60);
+    box-shadow:  0px 0px 24px 20px rgba(0,0,0,0.60);
+  }
+
+  &__back-inner {
+    position: absolute;
+    width: 500px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    opacity: .5;
+    background-position: center;
+    background-size: cover;
 
   }
+
 }

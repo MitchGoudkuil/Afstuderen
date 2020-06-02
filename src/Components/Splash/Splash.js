@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+import Parallax from 'react-rellax';
 import BackgroundDark from "../../Images/project-dark.jpg";
 import video from "../../Images/film.mp4";
 import coding from "../../Images/coding.mp4";
@@ -64,19 +65,23 @@ class Splash extends Component {
             <div className={"container full-height home__top"} style={{backgroundImage: `url(${BackgroundDark})`}}>
                 <div className={`splash__slide ${this.state.slide ? "slide-active" : "" }`}></div>
                 <ReactPlayer className={"splash__player"} onEnded={this.handlePlayed} width={"100%"} height={"100vh"} url={this.state.videoLink} volume={0} muted={this.state.muted} playing={this.state.playing} onDuration={this.handleTimer}  />
-                <div className={'splash__title-block'}>
-                    {sliderArray.map(item => {
-                        return <h1 key={item.id} onClick={() => this.handleSlideClick(item.id, item.videoLink)} className={`${item.id === this.state.current ? "active" : ""}`}>{item.title} <span>{item.id + ".0"}</span></h1>
-                    })}
-                </div>
-                <div className="splash__timer">
-                    <svg width="11" height="62" xmlns="http://www.w3.org/2000/svg">
-                        <g transform="translate(-.5)" fill="none" fillRule="evenodd">
-                            <path d="M6 .5v61" stroke="#FFF" strokeLinecap="square"/>
-                            <circle className={`loader-bullet ${this.state.playing ? "timing" : ""}`} style={{animationDuration: this.state.playing ? this.state.timer + "s" : ""}} fill="#FFF" cx="6" cy="7.5" r="5.5"/>
-                        </g>
-                    </svg>
-                </div>
+
+                    <div className={'splash__title-block'}>
+                        <Parallax speed={-4} percentage={.5} >
+                        {sliderArray.map(item => {
+                            return <h1 key={item.id} onClick={() => this.handleSlideClick(item.id, item.videoLink)} className={`${item.id === this.state.current ? "active" : ""}`}>{item.title} <span>{item.id + ".0"}</span></h1>
+                        })}
+                        </Parallax>
+                    </div>
+
+                {/*<div className="splash__timer">*/}
+                {/*    <svg width="11" height="62" xmlns="http://www.w3.org/2000/svg">*/}
+                {/*        <g transform="translate(-.5)" fill="none" fillRule="evenodd">*/}
+                {/*            <path d="M6 .5v61" stroke="#FFF" strokeWidth={"2.4px"} strokeLinecap="square"/>*/}
+                {/*            <circle className={`loader-bullet ${this.state.playing ? "timing" : ""}`} style={{animationDuration: this.state.playing ? this.state.timer + "s" : ""}} fill="#FFF" cx="6" cy="7.5" r="5.5"/>*/}
+                {/*        </g>*/}
+                {/*    </svg>*/}
+                {/*</div>*/}
             </div>
         )
     }

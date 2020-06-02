@@ -1,17 +1,19 @@
 import React, {Component} from "react";
 import NavItem from "./NavItem";
 import Footer from "../Footer/Footer";
-import background from "../../Images/project.jpg";
+import ProGif from "../../Images/projecten-gif.gif";
 import ImageFollow from "../ImageFollow/ImageFollow";
 import iqOffice from '../../Images/0.jpeg';
-import Giphy from '../../Images/giphy.gif';
-import Great from '../../Images/giphy2.gif';
+import ContactGif from '../../Images/contact.gif';
+import AboutGif from '../../Images/about.gif';
+import HomeGif from '../../Images/home.gif';
+
 
 const menuArray = [
-    {page: "home", id: 1, image: background },
-    {page: "about", id: 2, image: Great},
-    {page: "projecten", id: 3, image: background},
-    {page: "contact", id: 4, image: Giphy}];
+    {page: "home", id: 1, image: HomeGif },
+    {page: "about", id: 2, image: AboutGif},
+    {page: "projecten", id: 3, image: ProGif},
+    {page: "contact", id: 4, image: ContactGif}];
 
 class Menu extends Component {
     constructor(props) {
@@ -21,7 +23,7 @@ class Menu extends Component {
             toggle: props.toggle,
             imageY: "",
             imageX: "",
-            background: background,
+            background: HomeGif,
             active: false
         }
     }

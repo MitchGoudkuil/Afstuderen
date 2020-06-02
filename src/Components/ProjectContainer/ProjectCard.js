@@ -1,12 +1,7 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 const ProjectCard = (props) => {
-
-    useEffect(() => {
-        console.log(props.toggle)
-    });
-
-    return <img onMouseEnter={props.hover} onMouseLeave={props.leave} src={props.image} className={`project-card ${props.toggle ? "fourth" : "" }`} />
+    return <img alt={"Card with a visual representation of a project"} onMouseEnter={props.hover} onMouseLeave={props.leave} src={props.image} className={`project-card`} />
 };
 
 export default ProjectCard

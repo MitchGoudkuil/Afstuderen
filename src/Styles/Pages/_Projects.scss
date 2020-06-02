@@ -2,16 +2,21 @@
   background-color: #111 ;
 
   &__container {
-    display: flex;
     height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     &__toggle {
       position: absolute;
       z-index: 110;
-      right: -30px;
+      right: -20px;
       top: 50%;
       background-color: #111;
-      padding: 25px;
+      padding: 20px;
       border-radius: 100%;
       opacity: 0;
       transition: .6s ease;
@@ -19,19 +24,26 @@
 
 
       img {
-        width: 25px;
+        width: 20px;
+        transform: translateX(10px);
       }
     }
 
     &--left {
-      position: relative;
+      position: fixed;
+      left: 0;
+      top:0;
       background-color: #111;
       color: #fff;
       width: 30%;
       height: 100vh;
       transition: .4s;
+      z-index: 7;
+      -webkit-box-shadow: 0px 0px 24px 20px rgba(0,0,0,0.60);
+      -moz-box-shadow:  0px 0px 24px 20px rgba(0,0,0,0.60);
+      box-shadow:  0px 0px 24px 20px rgba(0,0,0,0.60);
 
-      &.hide {
+      &.hides {
         transform: translateX(-95%);
       }
 
@@ -42,19 +54,13 @@
     }
 
     &--right {
-      width: 70%;
+      width: 100%;
       height: auto;
       background-color: #111;
       transition: .6s ease ;
       transition-delay: .7s;
       color: #fff;
-      overflow: hidden;
-      overflow-y: scroll;
       clip-path: inset(0% 0% 100% 0%);
-
-      &.expand {
-        width: 100%;
-      }
     }
   }
 

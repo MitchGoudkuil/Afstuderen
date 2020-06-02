@@ -14,6 +14,7 @@
 
 
 // Components
+@import 'Components/ParallaxImage';
 @import 'Components/ProjectContainer';
 @import 'Components/Scroller';
 @import 'Components/Team';
@@ -26,3 +27,6 @@
 @import 'Base/ActiveClasses';
 
 @import 'Base/KeyframeAnim';
+
+/* Responsive */
+@import "Base/responsive";
